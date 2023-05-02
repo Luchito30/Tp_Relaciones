@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Películas ordas por rating</title>
-    <link rel='stylesheet' href='/css/style.css' />
-</head>
+<%- include('./partials/head.ejs') %>
 <body>
-    <figure>
-        <img src="/img/logo-DH.png" alt="Logo Digital House">
-    </figure>
-    <h1>PEÍCULAS CON RATING MAYOR A 8</h1>
-    <ul>
-        <% for( let i = 0; i < movies.length; i++ ) { %>
-        <li>
-            <a href="/movies/detail/<%=movies[i].id%>"><%= movies[i].title %> </a> <br>
-            <%= 'RATING: ' + movies[i].rating %> 
-        </li>
-        <% } %>
-        
-    </ul>
+    <%- include('./partials/header.ejs') %>
+    <h1 class="indextitulo">
+        <%= title %>
+    </h1>
+    <br>
+    <div class="d-flex flex-wrap justify-content-center gap-4"> <!-- Agregar div que contiene las cards -->
+        <% movies.forEach(movie=> { %>
+        <div class="card mb-4" id="list__card">
+            <a href="/movies/detail/<%= movie.id %>" class="list_hiper">
+            <img src="/img/Movies/<%= movie.image %>"  id="list__img" class="card-img-top" alt="...">
+            <div class="card-body">
+              <span class="list__span"><%= movie.title %></span><br><br>
+                <span>Raiting</span> <br>
+                <%= movie.rating  %>
+            </div>
+        </div>
+    </a>
+        <% }) %>
+    </div>
+    <%- include('./partials/scrips.ejs') %>
+<%- include('./partials/footer.ejs') %>
 </body>
 </html>

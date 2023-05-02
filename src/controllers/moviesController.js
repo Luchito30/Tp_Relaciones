@@ -14,7 +14,7 @@ const Actors = db.Actor;
 
 
 const moviesController = {
-    'list': (req, res) => {
+    list: (req, res) => {
         db.Movie.findAll({
             order: [["title","ASC"]]
         })
@@ -25,13 +25,20 @@ const moviesController = {
                 })
             })
     },
-    'detail': (req, res) => {
+    detail: (req, res) => {
         db.Movie.findByPk(req.params.id,{
             include : ["genre","actors"]
         })
             .then(movie => {
-                res.render('moviesDetail', {movie});
-            });
+                res.render('moviesDetail', {
+                    title: "Detalle Pelicula",
+                    movie:{
+                        ...movie.dataValues,
+                        release_date : movie.release_date.toISOString().split('T')[0]
+                    }
+                   
+                });
+            }).catch(error => console.log(error));
     },
     new: (req, res) => {
         db.Movie.findAll({
@@ -40,7 +47,6 @@ const moviesController = {
           ],
         })
         .then(movies => {
-          // Formatear la fecha de cada película
           const formattedMovies = movies.map(movie => {
             const releaseDate = new Date(movie.release_date);
             const formattedReleaseDate = releaseDate.toLocaleDateString('es-AR');
@@ -49,8 +55,6 @@ const moviesController = {
               release_date: formattedReleaseDate
             };
           });
-      
-          // Renderizar la vista con las películas formateadas
           return res.render('newestMovies', {
             movies: formattedMovies,
             title: "Peliculas por Fecha"
@@ -58,7 +62,7 @@ const moviesController = {
         })
         .catch(error => console.log(error))
       },
-    'recomended': (req, res) => {
+    recomended: (req, res) => {
         db.Movie.findAll({
             where: {
                 rating: {[db.Sequelize.Op.gte] : 8}
@@ -68,7 +72,10 @@ const moviesController = {
             ]
         })
             .then(movies => {
-                res.render('recommendedMovies.ejs', {movies});
+                res.render('recommendedMovies.ejs', {
+                    movies,
+                    title: "Ranking"
+                });
             });
     },
     search: (req, res) => {
@@ -87,7 +94,6 @@ const moviesController = {
           });
         }).catch(error => console.log(error)) 
       },
-    //Aqui dispongo las rutas para trabajar con el CRUD
     add: function (req, res) {
         const allGenres = db.Genre.findAll()
 

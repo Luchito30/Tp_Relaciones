@@ -1,40 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= movie.title %> </title>
-    <link rel='stylesheet' href='/css/style.css' />
+<%- include('./partials/head.ejs') %>
 
-</head>
-<body>
-    <figure>
-        <img src="/img/logo-DH.png" alt="Logo Digital House">
-    </figure>
-    <h1><%= movie.title %> </h1>    
-    <br>
-    <p>RATING: <%= movie.rating %> </p>
-    <p>AWARDS: <%= movie.awards %> </p>
-    <p>LENGTH: <%= movie.length + ' min'%> </p>
-    <p>RELEASE DATE: <%= movie.release_date %> </p>
-    <% if (movie.genre) { %>
-        <p>GENRE: <a href="/genres/detail/<%= movie.genre.id %>"><%= movie.genre.name %></a></p>
-    <% } else { %>
-        <p>GENRE: Sin Espicificar</p> 
-    <% } %>
-    <p>Actores:</p>
-    <% movie.actors.forEach(actor => { %>
-        <ul>
-            <li><a href="/actors/detail/<%= actor.id %>"><%= actor.first_name %> <%= actor.last_name %></a></li>
-        </ul>
-    <% }) %>
-    <br>
-    <section>
-        <!--Aquí debe colocar los botones de Modificar - Borrar y Listado de Películas-->
-        <a href="/movies/edit/<%= movie.id %>">EDITAR</a>
-        <br>
-        <a href="/movies/delete/<%= movie.id %>">ELIMINAR</a>
-    </section>
+    <body>
+        <%- include('./partials/header.ejs') %>
 
-</body>
+
+
+        <h1 class="detail__titulo">
+            <%= movie.title %>
+        </h1>
+
+
+        <div class="card mb-3" id="detailcard">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="/img/Movies/<%= movie.image %>" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8" id="detail__col">
+                <div class="card-body">
+                  <h5 class="card-title" id="detail__cardtitle">Caracteristicas de la Pelicula</h5>
+                  <p class="card-text">
+                <ul class="detail__ul">
+                    <li class="detail_li">RATING: <%= movie.rating %></li>
+                    <li class="detail_li">PREMIOS: <%= movie.awards %></li>
+                    <li class="detail_li">DURACION: <%= movie.length + ' min' %></li>
+                    <li class="detail_li">ESTRENO: <%= movie.release_date %></li>
+                    <li class="detail_li"><% if (movie.genre) { %>
+                        <p>GENERO: <a class="detail__hiper" href="/genres/detail/<%= movie.genre.id %>">
+                                <%= movie.genre.name %>
+                            </a></p>
+                        <% } else { %>
+                            <p>GENERO: Sin Espicificar</p>
+                            <% } %></li>
+                    <li class="detail_li"><p>ACTORES:
+                        <% movie.actors.forEach(actor=> { %>
+                            <ul>
+                                <li><a class="detail__hiper" href="/actors/detail/<%= actor.id %>">
+                                        <%= actor.first_name %>
+                                            <%= actor.last_name %>
+                                    </a></li>
+                            </ul>
+                            <% }) %>
+                    </p></li>
+                    <li class="detail_li"><p>ACCIONES:
+                        <ul>
+                            <li> <a class="detail__hiper" href="/movies/edit/<%= movie.id %>">EDITAR</a></li>
+                            <li><a class="detail__hiper" href="/movies/delete/<%= movie.id %>">ELIMINAR</a></li>
+                        </ul>
+                    </p></li>
+                </ul>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <%- include('./partials/footer.ejs') %>
+                <%- include('./partials/scrips.ejs') %>
+
+    </body>
+
 </html>

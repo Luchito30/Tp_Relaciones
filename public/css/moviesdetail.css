@@ -1,0 +1,37 @@
+.detail__titulo{
+    margin: 60px auto;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    filter: drop-shadow(5px 3px 4px red);
+    color: black;
+    text-align: center;
+    font-weight: 800;
+}
+#detail__row{
+    margin-top: 50px;
+}
+.detail__img{
+    width: 100%;
+}
+#detailcard{
+    max-width: 1150px;
+    margin: 0 auto;
+}
+#detail__col{
+    background-color: rgba(0, 0, 0, 0.9);
+}
+#detail__cardtitle{
+    color: white;
+    filter: drop-shadow(2px 4px 2px red);
+}
+.detail__ul{
+    list-style: none;
+    color: white;
+}
+.detail_li{
+    margin-bottom: 15px;
+}
+.detail__hiper{
+    color: red;
+    font-weight: 700;
+    text-decoration: none;
+}
