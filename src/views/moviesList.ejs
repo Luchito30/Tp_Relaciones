@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/header.ejs') %>
+        <h1 class="index__titulo" id="indextitulo">
+            <%= title %>
+        </h1>
+        <br>
+        <div class="d-flex flex-wrap justify-content-center gap-4"> <!-- Agregar div que contiene las cards -->
+            <% movies.forEach(movie=> { %>
+            <div class="card mb-4" id="list__card">
+                <img src="/img/Movies/<%= movie.image %>"  id="list__img" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text"> <a href="/movies/detail/<%= movie.id %>">
+                            <%= movie.title %>
+                        </a></p>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+        <%- include('./partials/scrips.ejs') %>
+        <%- include('./partials/footer.ejs') %>
+    </body>
+</html>

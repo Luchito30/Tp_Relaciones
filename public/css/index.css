@@ -1,0 +1,37 @@
+.index__Logo{
+    width: 30%;
+    margin: 50px;
+}
+.index__logo--img{
+    width: 100%;
+    filter: drop-shadow(8px 6px 4px white);
+}
+.index__titulo{
+    text-align: center;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    filter: drop-shadow(5px 3px 4px red);
+    color: white;
+}
+.index__bienvenida{
+    margin-bottom: 45px;
+    color: white;
+    margin-top: 60px;
+    margin-left: 40px;
+}
+.index__listado{
+    text-decoration: none;
+    color: white;
+    margin-left: 40px;
+    font-size: 18px;
+    transition: all 1s ease;
+    margin-bottom: 40px;
+    display: block;
+}
+.index__listado:hover{
+    color: red;
+    font-weight: 600;
+    margin-left: 80px;
+    filter: drop-shadow(6px 5px 1px black);
+    transform: scaleY(2.5);
+    cursor: pointer;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+   <%- include('./partials/head.ejs') %>
+  <body class="index__body">
+    <figure class="index__Logo">
+      <img class="index__logo--img" src="/img/logo-DH.png" alt="Logo Digital House">
+    </figure>
+    <h1 class="index__titulo"><%= title %></h1>
+    <h3 class="index__bienvenida">Bienvenidos a <%= title %></h3>
+    <div><a class="index__listado" href="/movies">Listado de Películas</a></div>
+    <div><a class="index__listado" href="/genres">Listado de Generos</a></div>
+    <div><a class="index__listado" href="/movies/new">Peliculas ordenada por fecha</a></div>
+    <div><a class="index__listado" href="/movies/recommended">Peliculas ordenada por Rating </a></div>
+    <div><a class="index__listado" href="/movies/add">Agregar Pelicula</a></div>
+    <%- include('./partials/scrips.ejs') %>
+  
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>
