@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>listado de Generos</title>
-    <link rel='stylesheet' href='/css/style.css' />
-
-</head>
+<%- include('./partials/head.ejs') %>
 
 <body>
-    <figure>
-        <img src="/img/logo-DH.png" alt="Logo Digital House">
-      </figure>
-    <h1>LISTADO DE GENEROS</h1>
-    <ul>
-        <% for( let i = 0; i < genres.length; i++ ) { %>
-        <li>
-            <a href="/genres/detail/<%= genres[i].id %>"><%= genres[i].name %></a>
-        </li>
-        <% } %>
-
-    </ul>
+   <%- include('./partials/header.ejs') %>
+   <h1 class="indextitulo">
+    <%= title %>
+</h1>
+<br>
+<div class="d-flex flex-wrap justify-content-center gap-4"> <!-- Agregar div que contiene las cards -->
+    <% genres.forEach(genre=> { %>
+    <div class="card mb-4" id="list__card">
+        <a href="/genres/detail/<%= genre.id %>" class="list_hiper">
+        <img src="/img/genres/<%= genre.image %>"  id="list__img" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-text"><%= genre.name %></p>
+        </div>
+    </div>
+</a>
+    <% }) %>
+</div>
+<%- include('./partials/scrips.ejs') %>
+<%- include('./partials/footer.ejs') %>
 </body>
 
 </html>

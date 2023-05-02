@@ -7,10 +7,12 @@
     filter: drop-shadow(8px 6px 4px white);
 }
 .index__titulo{
-    text-align: center;
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-    filter: drop-shadow(5px 3px 4px red);
-    color: white;
+    filter: drop-shadow(5px 3px 4px white);
+    color: red;
+    margin-right: 460px;
+    text-align: center;
+    font-weight: 800;
 }
 .index__bienvenida{
     margin-bottom: 45px;

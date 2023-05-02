@@ -1,9 +1,15 @@
 .moviestlist__img{
     width: 200px;
-    filter: drop-shadow(1px 2px 1px black);
+    filter: drop-shadow(1px 2px 1px white)
 }
-#indextitulo{
+.indextitulo{
     margin-top: 50px;
+    text-align: center;
+    margin-right: 0;
+    color: black;
+    font-weight: 800;
+    filter: drop-shadow(5px 3px 4px red);
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .bg-body-tertiary {
     background-color: #ee0000 !important;
@@ -48,10 +54,26 @@
 }
 #list__card{
     width: 11rem;
+    background-color: #ffe8e8;
+}
+#list__card:hover{
+    background-color: #fff;
 }
 #list__img{
     width: 100%;
     object-fit: contain;
     height: 230px;
     background-color: white;
+}
+.list_hiper{
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    filter: drop-shadow(4px 5px 9px black);
+}
+
+.list_hiper:hover{
+    filter: brightness(0.5);
+    color: red;
 }

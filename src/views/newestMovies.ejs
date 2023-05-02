@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Películas ordenas por fecha</title>
-    <link rel='stylesheet' href='/css/style.css' />
-</head>
+<%- include('./partials/head.ejs') %>
 <body>
-    <figure>
-        <img src="/img/logo-DH.png" alt="Logo Digital House">
-    </figure>
-    <h1>PELIÍCULAS ORDENADASR FECHA</h1>
-    <ul>
-        <% for( let i = 0; i < movies.length; i++ ) { %>
-        <li>
-            <a href="/movies/detail/<%=movies[i].id%>"><%= movies[i].title %> </a> <br>
-            <%= 'RELEASE DATE: ' + movies[i].release_date %> 
-        </li>
-        <% } %>
-        
-    </ul>
+    <%- include('./partials/header.ejs') %>
+    <h1 class="indextitulo">
+        <%= title %>
+    </h1>
+    <br>
+    <div class="d-flex flex-wrap justify-content-center gap-4"> <!-- Agregar div que contiene las cards -->
+        <% movies.forEach(movie=> { %>
+        <div class="card mb-4" id="list__card">
+            <a href="/movies/detail/<%= movie.id %>" class="list_hiper">
+            <img src="/img/Movies/<%= movie.image %>"  id="list__img" class="card-img-top" alt="...">
+            <div class="card-body">
+              <%= movie.title %><br><br>
+                <span>Fecha Estreno</span> <br>
+                <%= movie.release_date %>
+            </div>
+        </div>
+    </a>
+        <% }) %>
+    </div>
+    <%- include('./partials/scrips.ejs') %>
+<%- include('./partials/footer.ejs') %>
 </body>
 </html>

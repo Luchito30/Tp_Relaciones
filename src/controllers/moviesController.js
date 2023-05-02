@@ -15,11 +15,13 @@ const Actors = db.Actor;
 
 const moviesController = {
     'list': (req, res) => {
-        db.Movie.findAll()
+        db.Movie.findAll({
+            order: [["title","ASC"]]
+        })
             .then(movies => {
                 res.render('moviesList.ejs', {
                     movies,
-                    title: "LISTADO DE PELÍCULAS"
+                    title: "PELÍCULAS"
                 })
             })
     },
@@ -31,16 +33,31 @@ const moviesController = {
                 res.render('moviesDetail', {movie});
             });
     },
-    'new': (req, res) => {
+    new: (req, res) => {
         db.Movie.findAll({
-            order : [
-                ['release_date', 'DESC']
-            ],
+          order : [
+            ['release_date', 'DESC']
+          ],
         })
-            .then(movies => {
-                res.render('newestMovies', {movies});
-            });
-    },
+        .then(movies => {
+          // Formatear la fecha de cada película
+          const formattedMovies = movies.map(movie => {
+            const releaseDate = new Date(movie.release_date);
+            const formattedReleaseDate = releaseDate.toLocaleDateString('es-AR');
+            return {
+              ...movie.dataValues,
+              release_date: formattedReleaseDate
+            };
+          });
+      
+          // Renderizar la vista con las películas formateadas
+          return res.render('newestMovies', {
+            movies: formattedMovies,
+            title: "Peliculas por Fecha"
+          });
+        })
+        .catch(error => console.log(error))
+      },
     'recomended': (req, res) => {
         db.Movie.findAll({
             where: {
@@ -54,6 +71,22 @@ const moviesController = {
                 res.render('recommendedMovies.ejs', {movies});
             });
     },
+    search: (req, res) => {
+        const { Pelicula } = req.query;
+        db.Movie.findAll({
+          where: {
+              title: {
+              [Op.like] : `%${Pelicula}%`
+            }}
+        })
+        .then(movies => {
+            res.render('moviesList.ejs', {
+                movies,
+                title: "PELÍCULAS",
+                Pelicula
+          });
+        }).catch(error => console.log(error)) 
+      },
     //Aqui dispongo las rutas para trabajar con el CRUD
     add: function (req, res) {
         const allGenres = db.Genre.findAll()

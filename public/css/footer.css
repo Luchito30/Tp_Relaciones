@@ -1,11 +1,11 @@
-.footer__princ{
-    background-color: black;
-    opacity: 0.5;
-    position: relative;
-    bottom: 0;
-}
-.footer__span{
-    opacity: 1;
-    color: white;
-    margin: 0 20px;
-}
+.footer__princ {
+    position: absolute;
+    width: 100%; 
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: #ffffff; 
+  }
+  
+  .footer__span {
+    text-align: center;
+    padding-top: 20px;
+  }

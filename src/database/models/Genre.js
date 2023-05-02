@@ -22,6 +22,10 @@ module.exports = (sequelize, dataTypes) => {
         active: {
             type: dataTypes.BOOLEAN,
             allowNull: false
+        },
+        image: {
+            type: dataTypes.STRING(100),
+            allowNull: false
         }
     };
     let config = {

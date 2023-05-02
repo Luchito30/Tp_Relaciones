@@ -158,6 +158,7 @@ CREATE TABLE `genres` (
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `ranking` int(10) unsigned NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
+  `image` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `genres_ranking_unique` (`ranking`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -169,7 +170,7 @@ CREATE TABLE `genres` (
 
 LOCK TABLES `genres` WRITE;
 /*!40000 ALTER TABLE `genres` DISABLE KEYS */;
-INSERT INTO `genres` VALUES (1,'2016-07-04 03:00:00',NULL,'Comedia',1,1),(2,'2014-07-04 03:00:00',NULL,'Terror',2,1),(3,'2013-07-04 03:00:00',NULL,'Drama',3,1),(4,'2011-07-04 03:00:00',NULL,'Accion',4,1),(5,'2010-07-04 03:00:00',NULL,'Ciencia Ficcion',5,1),(6,'2013-07-04 03:00:00',NULL,'Suspenso',6,1),(7,'2005-07-04 03:00:00',NULL,'Animacion',7,1),(8,'2003-07-04 03:00:00',NULL,'Aventuras',8,1),(9,'2008-07-04 03:00:00',NULL,'Documental',9,1),(10,'2013-07-04 03:00:00',NULL,'Infantiles',10,1),(11,'2011-07-04 03:00:00',NULL,'Fantasia',11,1),(12,'2013-07-04 03:00:00',NULL,'Musical',12,1);
+INSERT INTO `genres` VALUES (1,'2016-07-04 03:00:00',NULL,'Comedia',1,1,'comedia.jpg'),(2,'2014-07-04 03:00:00',NULL,'Terror',2,1,'terror.jpg'),(3,'2013-07-04 03:00:00',NULL,'Drama',3,1,'drama.jpg'),(4,'2011-07-04 03:00:00',NULL,'Accion',4,1,'accion.jpg'),(5,'2010-07-04 03:00:00',NULL,'Ciencia Ficcion',5,1,'cienciaficcion.jpg'),(6,'2013-07-04 03:00:00',NULL,'Suspenso',6,1,'suspenso.webp'),(7,'2005-07-04 03:00:00',NULL,'Animacion',7,1,'animacion.webp'),(8,'2003-07-04 03:00:00',NULL,'Aventuras',8,1,'aventura.webp'),(9,'2008-07-04 03:00:00',NULL,'Documental',9,1,'documental.webp'),(10,'2013-07-04 03:00:00',NULL,'Infantiles',10,1,'infantil.jpg'),(11,'2011-07-04 03:00:00',NULL,'Fantasia',11,1,'fantacia.jpg'),(12,'2013-07-04 03:00:00',NULL,'Musical',12,1,'musical.jpg');
 /*!40000 ALTER TABLE `genres` ENABLE KEYS */;
 UNLOCK TABLES;
 
