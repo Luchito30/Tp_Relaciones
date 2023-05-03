@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borrado de la Película</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-
+<%- include('./partials/head.ejs') %>
 <body>
-    <figure>
-        <img src="/img/logo-DH.png" alt="Logo Digital House">
-      </figure>
-    <h1>Estas seguro de querer borrar esta película: <%= Movie.title %>???</h1>
-    <p>
-        <form action="/movies/delete/<%= Movie.id %>?_method=DELETE" method="POST">
-            <br>
-            <p> <button class="botonBorrar" type="submit">Borrar la Película</button>
-            
-            <a  class="botonVolver" href="/movies">Listado de Películas</a></p>
+    <%- include('./partials/header.ejs') %>
 
+    <h1 class="detail__titulo">
+        ¡Advertencia!
+    </h1>
+
+    <div class="detail__boxform">
+    <h2 class="detail__subtitulo">Estas seguro de querer borrar esta película: <%= Movie.title %></h2>
+
+    <h4 class="detail__subtitulo">Si la borras no la vas a poder recuperar, ¿Deseas continuar?</h4>
+
+        <form action="/movies/delete/<%= Movie.id %>?_method=DELETE" method="POST">
+          
+            <div class="butoms_boxes"> 
+                <button class="btn btn-danger" type="submit">Borrar la Película</button>
+                <button type="button" class="btn btn-primary"><a class="add__butomms" href="/movies">cancelar</a></button>
+            </div>
         </form>
-    </p>
     
+</div>
+
+    <%- include('./partials/scrips.ejs') %>
 </body>
 
 </html>

@@ -17,7 +17,10 @@ const genresController = {
             include: ['movies']
         })
             .then(genre => {
-                res.render('genresDetail.ejs', {genre});
+                res.render('genresDetail.ejs', {
+                    genre,
+                    title:"Detalle Genero"
+                });
             });
     }
 

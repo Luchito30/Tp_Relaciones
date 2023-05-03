@@ -9,7 +9,7 @@
     <%= title %>
 </h1>
 <br>
-<div class="d-flex flex-wrap justify-content-center gap-4"> <!-- Agregar div que contiene las cards -->
+<div class="d-flex flex-wrap justify-content-center gap-4"> 
     <% genres.forEach(genre=> { %>
     <div class="card mb-4" id="list__card">
         <a href="/genres/detail/<%= genre.id %>" class="list_hiper">

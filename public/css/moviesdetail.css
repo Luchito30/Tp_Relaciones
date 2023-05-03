@@ -35,3 +35,20 @@
     font-weight: 700;
     text-decoration: none;
 }
+.detail__subtitulo{
+    text-align: center;
+    color: white;
+    margin-top: 25px;
+    filter: drop-shadow(2px 4px 1px black);
+}
+.detail__boxform{
+    border: 3px solid white;
+    width: 70%;
+    margin: 0 auto;
+    height: 200px;
+    background-color: rgba(255, 0, 0, 0.5);
+}
+.butoms_boxes{
+    text-align: center;
+    margin-top: 25px;
+}

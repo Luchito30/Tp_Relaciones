@@ -1,0 +1,8 @@
+#add__row{
+    display: flex;
+    justify-content: center;
+}
+.add__butomms{
+    color: white;
+    text-decoration: none;
+}

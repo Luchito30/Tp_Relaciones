@@ -5,5 +5,5 @@
 }
 body{
     background: url(/img/fondo_pelicula.webp);
-    background-repeat: round;
+    background-size: cover;
 }

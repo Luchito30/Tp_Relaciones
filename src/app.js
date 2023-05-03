@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const express = require('express');
 const path = require('path');
+const logger = require("morgan");
 const methodOverride = require("method-override");
 
 
@@ -15,7 +16,8 @@ const app = express();
 app.set('views', path.resolve(__dirname, './views'));
 app.set('view engine', 'ejs');
 
-app.use(express.static(path.resolve(__dirname, '../public')));
+app.use(logger("dev"));
+app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(methodOverride("_method"));
 
 //URL encode  - Para que nos pueda llegar la información desde el formulario al req.body
