@@ -1,50 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="titulo">Editar Película</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+<%- include('./partials/head.ejs') %>
 
 <body>
-    <figure>
-        <img src="/img/logo-DH.png" alt="Logo Digital House">
-      </figure>
-    <h1 class="titulo">Película Editada:  <%= Movie.title %></h1>
-    <section class="formulario">
-        <form action="/movies/update/<%= Movie.id %>?_method=PUT" method="POST">
-            <label for="title">Title </label>
-            <p><input type="text" name="title" id="" value="<%= Movie.title %>" required></p>
-            <label for="rating">Rating </label>
-            <p><input type="number" name="rating" id="" value="<%= Movie.rating %>" required></p>
-            <label for="awards">Awards </label>
-            <p><input type="number" name="awards" id="" value="<%= Movie.awards %>" required></p>
-            <label for="release_date">Release date </label>
-            <p><input type="date" name="release_date" id="" value="<%= Movie.release_date %>" required></p>
-            <label for="length">Length </label>
-            <p><input type="number" name="length" id="" value="<%= Movie.length %>" required></p>
-            <label for="genre_id">Genre </label>
-            <p>
-                <select name="genre_id" id="" required>
-                    <% allGenres.forEach(genre => { %>
-                    <option value="<%= genre.id %>" <% if (Movie.genre_id == genre.id) { %><%= 'selected' %><% }; %>><%= genre.name %></option>
-                    <% }); %>
-                </select>
-            </p>
+    <%- include('./partials/header.ejs') %>
+    
+    <h1 class="detail__titulo">Película Editada:  <%= Movie.title %></h1>
 
-    <!--
-            <label for="genre_id">Genre ID </label>
-            <p><input type="number" name="genre_id" id="" value="<%= Movie.genre_id %>"></p>
-        -->
-            
-            <br>
-            <p> <button class="botonAgregar" type="submit">Actualizar</button>
-        
-            <a  class="botonVolver" href="/movies">Listado de Películas</a></p>
-        </form>
-    </section>
+
+    <div class="row g-0" id="add__row">
+        <div class="col-md-4">
+
+            <form class="row g-3"  action="/movies/update/<%= Movie.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+
+                <small class="text-crear"><%= locals.errors && errors.title ? errors.title.msg : null %></small>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="title" placeholder="Titulo"
+                        aria-label="Username" aria-describedby="basic-addon1" value="<%= Movie.title %>">
+                </div>
+
+                <small class="text-crear"><%= locals.errors && errors.rating ? errors.rating.msg : null %></small>
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" name="rating" placeholder="Rating"
+                        aria-label="Recipient's username" aria-describedby="basic-addon2" value="<%= Movie.rating %>">
+                </div>
+
+                <small class="text-crear"><%= locals.errors && errors.awards ? errors.awards.msg : null %></small>
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" name="awards" placeholder="Premios"
+                        aria-label="Recipient's username" aria-describedby="basic-addon2" value="<%= Movie.awards %>">
+                </div>
+
+                <small class="text-crear"><%= locals.errors && errors.release_date ? errors.release_date.msg : null %></small>
+                <div class="input-group mb-3">
+                    <input type="date" class="form-control" name="release_date" placeholder="Estreno"
+                        aria-label="Recipient's username" aria-describedby="basic-addon2" value="<%= Movie.release_date %>">
+                </div>
+
+                <small class="text-crear"><%= locals.errors && errors.length ? errors.length.msg : null %></small>
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" name="length" placeholder="Duracion"
+                        aria-label="Recipient's username" aria-describedby="basic-addon2" value="<%= Movie.length %>">
+                </div>
+
+                <small class="text-crear"><%= locals.errors && errors.image ? errors.image.msg : null %></small>
+                <div class="mb-3">
+                    <input class="form-control" type="file" id="formFile" name="image" value="<%= Movie.image %>">
+                    <small class="detail__small">Imagen cargada en la Pelicula: <%= Movie.image %></small>
+                  </div>
+
+                  <small class="text-crear"><%= locals.errors && errors.genre_id ? errors.genre_id.msg : null %></small>
+                <select class="form-select" aria-label="Default select example" name="genre_id">
+                    <option value="" disabled hidden selected>- Seleccione Genero - </option>
+                    <% allGenres.forEach(genre => { %>
+                        <option value="<%= genre.id %>" <% if (Movie.genre_id == genre.id) { %><%= 'selected' %><% }; %>><%= genre.name %></option>
+                        <% }); %>
+                </select>
+
+                <div class="butoms_boxes">
+                    <button class="btn btn-success" type="submit">Actualizar</button>
+                    <button type="button" class="btn btn-primary"><a class="add__butomms" href="/movies">cancelar</a></button>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+
+    <%- include('./partials/scrips.ejs') %>
 </body>
 
 </html>

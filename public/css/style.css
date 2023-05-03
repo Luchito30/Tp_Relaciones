@@ -3,4 +3,5 @@
 @import "./footer.css";
 @import "./movieslist.css";
 @import "./moviesdetail.css";
-@import "./addmovies.css"
+@import "./addmovies.css";
+@import "./erroresvalidator.css"

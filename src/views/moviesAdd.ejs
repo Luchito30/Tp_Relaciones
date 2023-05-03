@@ -15,36 +15,43 @@
                 <div class="col-md-4">
 
                     <form class="row g-3" action="/movies/create" method="POST"  enctype="multipart/form-data">
+                        
+                        <small class="text-crear"><%= locals.errors && errors.title ? errors.title.msg : null %></small>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" name="title" placeholder="Titulo"
                                 aria-label="Username" aria-describedby="basic-addon1">
                         </div>
 
+                        <small class="text-crear"><%= locals.errors && errors.rating ? errors.rating.msg : null %></small>
                         <div class="input-group mb-3">
                             <input type="number" class="form-control" name="rating" placeholder="Rating"
                                 aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
 
+                        <small class="text-crear"><%= locals.errors && errors.awards ? errors.awards.msg : null %></small>
                         <div class="input-group mb-3">
-                            <input type="number" class="form-control" name="awards" placeholder="Awards"
+                            <input type="number" class="form-control" name="awards" placeholder="Premios"
                                 aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
 
+                        <small class="text-crear"><%= locals.errors && errors.release_date ? errors.release_date.msg : null %></small>
                         <div class="input-group mb-3">
                             <input type="date" class="form-control" name="release_date" placeholder="Estreno"
                                 aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
 
+                        <small class="text-crear"><%= locals.errors && errors.length ? errors.length.msg : null %></small>
                         <div class="input-group mb-3">
                             <input type="number" class="form-control" name="length" placeholder="Duracion"
                                 aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
 
+                        <small class="text-crear"><%= locals.errors && errors.image ? errors.image.msg : null %></small>
                         <div class="mb-3">
                             <input class="form-control" type="file" id="formFile" name="image">
                           </div>
 
-                          
+                        <small class="text-crear"><%= locals.errors && errors.genre_id ? errors.genre_id.msg : null %></small>
                         <select class="form-select" aria-label="Default select example" name="genre_id">
                             <option value="" disabled hidden selected>- Seleccione Genero - </option>
                             <% allGenres.forEach(genre=> { %>
@@ -54,9 +61,10 @@
                                 <% }); %>
                         </select>
 
-                        <p> <button class="btn btn-success" type="submit">Agregar</button>
+                        <div class="butoms_boxes">
+                             <button class="btn btn-success" type="submit">Agregar</button>
                             <button type="button" class="btn btn-primary"><a class="add__butomms" href="/movies">Listado de Películas</a></button>
-                        </p>
+                        </div>
 
 
                     </form>
@@ -64,9 +72,6 @@
                 </div>
             </div>
 
-
-
-            <%- include('./partials/footer.ejs') %>
                 <%- include('./partials/scrips.ejs') %>
     </body>
 
