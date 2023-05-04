@@ -10,7 +10,7 @@
                 Agregar Película
             </h1>
 
-
+            <section class="add__section">
             <div class="row g-0" id="add__row">
                 <div class="col-md-4">
 
@@ -61,9 +61,9 @@
                                 <% }); %>
                         </select>
 
-                        <div class="butoms_boxes">
-                             <button class="btn btn-success" type="submit">Agregar</button>
-                            <button type="button" class="btn btn-primary"><a class="add__butomms" href="/movies">Listado de Películas</a></button>
+                        <div class="butoms_boxes d-flex justify-content-center gap-4">
+                             <button class="btn btn-success" type="submit">AGREGAR</button>
+                            <button type="button" class="btn btn-primary"><a class="add__butomms" href="/movies">CANCELAR</a></button>
                         </div>
 
 
@@ -71,6 +71,7 @@
 
                 </div>
             </div>
+        </section>
 
                 <%- include('./partials/scrips.ejs') %>
     </body>

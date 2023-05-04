@@ -39,24 +39,26 @@
     text-align: center;
     color: white;
     margin-top: 25px;
-    filter: drop-shadow(2px 4px 1px black);
+    filter: drop-shadow(2px 1px 1px red);
 }
 .detail__boxform{
     border: 3px solid white;
     width: 70%;
     margin: 0 auto;
-    height: 200px;
-    background-color: rgba(255, 0, 0, 0.5);
+    height: 230px;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 .butoms_boxes{
     text-align: center;
-    margin-top: 25px;
+    margin-top: 40px;
 }
 .detail__small{
     display: block;
-    background-color: white;
     height: 35px;
     border-radius: 4px;
     text-align: center;
     font-weight: 700;
+    margin-top: 2px;
+    padding-top: 7px;
+    background-color: rgba(255, 255, 255, 0.5);
 }

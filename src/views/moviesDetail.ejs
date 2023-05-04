@@ -42,13 +42,13 @@
                             </ul>
                             <% }) %>
                     </p></li>
-                    <li class="detail_li"><p>ACCIONES:
-                        <ul>
-                            <li> <a class="detail__hiper" href="/movies/edit/<%= movie.id %>">EDITAR</a></li>
-                            <li><a class="detail__hiper" href="/movies/delete/<%= movie.id %>">ELIMINAR</a></li>
-                        </ul>
-                    </p></li>
                 </ul>
+                
+                <div class="butoms_boxes d-flex justify-content-center gap-4">
+                    <button class="btn btn-success" type="submit"><a class="add__butomms" href="/movies/edit/<%= movie.id %>">EDITAR</a></button>
+                    <button type="button" class="btn btn-danger"><a class="add__butomms" href="/movies/delete/<%= movie.id %>">ELIMINAR</a></button>
+                    <button type="button" class="btn btn-primary"><a class="add__butomms" href="/movies">CANCELAR</a></button>
+                </div>
                   
                 </div>
               </div>

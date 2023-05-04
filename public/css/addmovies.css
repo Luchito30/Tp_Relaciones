@@ -1,6 +1,15 @@
+.add__section{
+    border: 3px solid black;
+    width: 60%;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
 #add__row{
     display: flex;
     justify-content: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+
 }
 .add__butomms{
     color: white;

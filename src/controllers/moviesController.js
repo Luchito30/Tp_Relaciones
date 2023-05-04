@@ -53,7 +53,7 @@ const moviesController = {
                 });
                 return res.render("newestMovies", {
                     movies: formattedMovies,
-                    title: "Peliculas por Fecha",
+                    title: "Peliculas por fecha de estreno",
                 });
             })
             .catch((error) => console.log(error));
