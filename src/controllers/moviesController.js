@@ -21,7 +21,7 @@ const moviesController = {
                 movies,
                 title: "PELÍCULAS",
             });
-        });
+        }) .catch((error) => console.log(error));
     },
     detail: (req, res) => {
         db.Movie.findByPk(req.params.id, {
@@ -69,7 +69,7 @@ const moviesController = {
                 movies,
                 title: "Ranking",
             });
-        });
+        }) .catch((error) => console.log(error));
     },
     search: (req, res) => {
         const { Pelicula } = req.query;

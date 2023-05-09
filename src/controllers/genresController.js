@@ -10,7 +10,7 @@ const genresController = {
                     genres,
                     title: "Generos"
                 })
-            })
+            }) .catch((error) => console.log(error));
     },
     'detail': (req, res) => {
         db.Genre.findByPk(req.params.id,{
@@ -21,7 +21,7 @@ const genresController = {
                     genre,
                     title:"Detalle Genero"
                 });
-            });
+            }) .catch((error) => console.log(error));
     }
 
 }
